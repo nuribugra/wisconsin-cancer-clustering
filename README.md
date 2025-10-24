@@ -47,10 +47,20 @@ The project follows these key steps:
 ---
 
 ## Results & Conclusion
-<!--
-Example:
-The K-Means model with K=2 successfully identified two distinct clusters that showed a high correlation with the actual malignant and benign diagnoses. The DBSCAN algorithm also found similar groupings, confirming the inherent structure in the data. This demonstrates the potential of unsupervised learning in identifying meaningful patterns in medical datasets.
--->
+
+Results:
+The analysis to determine the optimal number of clusters using both the Elbow Method and Silhouette Score strongly indicated that K=2 is the most appropriate choice for this dataset. The models were then implemented and evaluated based on this finding.
+
+K-Means Performance: The K-Means algorithm performed exceptionally well. When its predicted clusters were compared against the true diagnostic labels, it achieved an accuracy of 91.21%. The PCA visualization confirmed this success, showing two well-separated clusters that visually corresponded almost perfectly to the actual malignant and benign groups.
+
+DBSCAN Performance: The DBSCAN algorithm, after parameter tuning, was found to be ineffective for this particular problem. The optimal eps value was determined to be approximately 4.5. However, the model identified only one major cluster, failing to distinguish between the two classes. This was confirmed by very low evaluation scores, including an Adjusted Rand Score of 0.0260 and a Homogeneity Score of 0.0091 (where 1.0 is a perfect match and 0 is random). The PCA plot for DBSCAN showed a single large group with several noise points, unlike the clear separation achieved by K-Means.
+
+Conclusion:
+This project demonstrates that the success of a clustering algorithm is highly dependent on the structure of the data.
+
+K-Means, a centroid-based algorithm, was successful because the two clusters (malignant and benign) are globular and have distinct centers. DBSCAN, a density-based algorithm, failed because these two clusters are located close to each other without a significant low-density area separating them, causing the algorithm to perceive them as a single, large dense region.
+
+Ultimately, this analysis shows that unsupervised learning can be a powerful tool for discovering inherent patterns in medical datasets. However, it also highlights the critical importance of selecting an appropriate algorithm that matches the data's underlying distribution to achieve meaningful results.
 
 ---
 
